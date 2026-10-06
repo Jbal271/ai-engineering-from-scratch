@@ -41,6 +41,8 @@ I'm in university studying informatics engineering, so I'm using this to complem
 |------|--------|------|------|
 | 2026-10-06 | 00/01 | 2/3 | Beginner preflight passed; installed uv, managed Python 3.12.15, created `.venv`, and installed NumPy, Matplotlib, and Jupyter. Review uv's role in Python projects. |
 | 2026-10-06 | 00/02 | 3/3 | Read Git status and history, created `experiment/git-practic`, and identified ignored model checkpoint files. |
+| 2026-10-06 | 00/03 | 3/3 | Ran the GPU benchmark in Colab: 3.197s CPU vs 0.209s GPU (15x); estimated 15 GB fp16 VRAM at a theoretical 7.5B parameters. |
+| 2026-10-06 | 00/04 | 3/3 | Verified `.env` is ignored and ran the TypeScript API client in mock mode. Live API exercises deferred until choosing to use a key. |
 
 ## Review queue
 - Phase 0, Lesson 1 — Dev Environment: Review `uv` as a Python package installer and resolver.
