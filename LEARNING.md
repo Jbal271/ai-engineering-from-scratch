@@ -4,6 +4,7 @@
 <!-- Tutor preferences: Teach every lesson thoroughly by following all sections and relevant details in its docs/en.md in order; use interactive pauses and exercises, and do not imply full coverage when any sections were skipped. In the early phases, especially Phases 0-2, keep comprehension checks sparse (at most one during the lesson); teach the material smoothly and give the lesson quiz at the end. For shell tasks, use this loop: ask me to run one command, then as soon as its result appears, immediately explain whether it succeeded, failed, or was incomplete and what it means. Do not wait for me to say "done", "there", or otherwise confirm after the result. -->
 
 ## Mission
+<!-- Library familiarity: NumPy, Matplotlib, and IPython are new to the learner; explain relevant calls step by step without assuming prior familiarity. -->
 I'm in university studying informatics engineering, so I'm using this to complement my knowledge. I am very interested in this stuff and will possibly want to follow a career in ML/AI/Quant so either for research or development purposes. I am not sure yet what I most want to build by the end. I want to complete the full course sequentially, from Phase 0 through Phase 19, one lesson at a time.
 
 ## Placement
@@ -43,6 +44,7 @@ I'm in university studying informatics engineering, so I'm using this to complem
 | 2026-10-06 | 00/02 | 3/3 | Read Git status and history, created `experiment/git-practic`, and identified ignored model checkpoint files. |
 | 2026-10-06 | 00/03 | 3/3 | Ran the GPU benchmark in Colab: 3.197s CPU vs 0.209s GPU (15x); estimated 15 GB fp16 VRAM at a theoretical 7.5B parameters. |
 | 2026-10-06 | 00/04 | 3/3 | Verified `.env` is ignored and ran the TypeScript API client in mock mode. Live API exercises deferred until choosing to use a key. |
+| 2026-10-09 | 00/05 | 3/3 | Built a Jupyter notebook with Markdown, timings, CSV tables and plots; clean Restart & Run All passed; ran notebook tips in Colab and displayed its saved image. Understands kernel persistence; requests step-by-step library explanations. |
 
 ## Review queue
 - Phase 0, Lesson 1 — Dev Environment: Review `uv` as a Python package installer and resolver.
