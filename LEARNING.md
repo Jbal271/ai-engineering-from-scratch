@@ -3,6 +3,8 @@
      Repo: https://github.com/rohitg00/ai-engineering-from-scratch -->
 <!-- Tutor preferences: Teach every lesson thoroughly by following all sections and relevant details in its docs/en.md in order; use interactive pauses and exercises, and do not imply full coverage when any sections were skipped. In the early phases, especially Phases 0-2, keep comprehension checks sparse (at most one during the lesson); teach the material smoothly and give the lesson quiz at the end. For shell tasks, use this loop: ask me to run one command, then as soon as its result appears, immediately explain whether it succeeded, failed, or was incomplete and what it means. Do not wait for me to say "done", "there", or otherwise confirm after the result. -->
 
+<!-- Recall preference: Skip warm-up recall when the learner finishes a lesson and immediately starts the next one. Use recall after a gap. -->
+
 ## Mission
 <!-- Library familiarity: NumPy, Matplotlib, and IPython are new to the learner; explain relevant calls step by step without assuming prior familiarity. -->
 I'm in university studying informatics engineering, so I'm using this to complement my knowledge. I am very interested in this stuff and will possibly want to follow a career in ML/AI/Quant so either for research or development purposes. I am not sure yet what I most want to build by the end. I want to complete the full course sequentially, from Phase 0 through Phase 19, one lesson at a time.
@@ -45,6 +47,9 @@ I'm in university studying informatics engineering, so I'm using this to complem
 | 2026-10-06 | 00/03 | 3/3 | Ran the GPU benchmark in Colab: 3.197s CPU vs 0.209s GPU (15x); estimated 15 GB fp16 VRAM at a theoretical 7.5B parameters. |
 | 2026-10-06 | 00/04 | 3/3 | Verified `.env` is ignored and ran the TypeScript API client in mock mode. Live API exercises deferred until choosing to use a key. |
 | 2026-10-09 | 00/05 | 3/3 | Built a Jupyter notebook with Markdown, timings, CSV tables and plots; clean Restart & Run All passed; ran notebook tips in Colab and displayed its saved image. Understands kernel persistence; requests step-by-step library explanations. |
+| 2026-10-13 | 00/06 | 3/3 | Created a uv project, inspected requirements and lockfile, declared training/llm extras without installing them, and verified isolation and Git ignore rules. Inspected then ran env_setup.sh; all checks passed. Bare python unavailable; python3 selected a non-venv interpreter, while explicit .venv/bin/python selected the course environment. Replaced the global-install exercise with read-only target inspection. Reviewed driver/runtime compatibility; learner requested explaining and running the setup script at lesson end. |
+| 2026-10-13 | 00/07 | 1/3 | Installed Docker Engine and Compose in Ubuntu WSL on an AMD laptop; built and verified CPU PyTorch image, persistent bind mount, Compose-to-Qdrant HTTP request, localhost port publishing, shutdown, image sizes, and cached rebuild. Used stdlib HTTP server instead of Flask; NVIDIA setup and CUDA devel/runtime size comparison deferred. Confused toolkit GPU exposure with driver installation and service-name networking with shared volumes. Temporary image-pull failure resolved on retry; preserved WSL automount/interop isolation settings. |
 
 ## Review queue
 - Phase 0, Lesson 1 — Dev Environment: Review `uv` as a Python package installer and resolver.
+- Phase 0, Lesson 7 — Docker for AI: Review NVIDIA Container Toolkit exposing host GPUs (driver stays on host), and Compose service-name networking versus shared-file volumes. Quiz 1/3.
