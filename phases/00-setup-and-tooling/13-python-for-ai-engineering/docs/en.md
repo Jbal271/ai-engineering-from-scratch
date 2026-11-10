@@ -3,7 +3,7 @@
 > Most code in this course uses the same small set of Python idioms. Learn that set here, before the math and model lessons depend on it.
 
 **Type:** Build
-**Languages:** Python
+**Languages:** Python, TypeScript
 **Prerequisites:** Dev Environment, Python Environments
 **Time:** ~120 minutes
 
@@ -821,6 +821,7 @@ A nearest-centroid classifier stores the mean feature vector of each class. It p
 
 ```bash
 python3 phases/00-setup-and-tooling/13-python-for-ai-engineering/code/main.py
+npx tsx phases/00-setup-and-tooling/13-python-for-ai-engineering/code/main.ts
 ```
 
 ```text
@@ -1028,6 +1029,18 @@ It reports each finding with a location, the problem, and a fix.
 3. Write `stream_records(path)`, a generator that yields one `Record` at a time from a CSV file. Make a file of 200,000 rows. Compare the peak memory of `stream_records` and `load_records` with `tracemalloc`.
 4. Write `matvec(matrix, vector)` in pure Python and in NumPy. Measure both with `best_time` for sizes 4, 64, and 1024. Find the size where NumPy becomes faster on your machine.
 5. Write the construct scan from The Concept. Use `ast.parse` and `ast.walk` on each file in `phases/*/*/code/*.py`. Count the files that contain `ast.ListComp`, `ast.Yield`, and `ast.With`, and compare your counts with the table.
+
+### Hints
+
+**Exercise 1.** Import `run_demo` from `code/main.py` and call it with `seed=7` and with `seed=8`, then print both results with `format_report`. The values that come from random data change; the split sizes depend only on `n` and `test_fraction`, so they stay the same.
+
+**Exercise 2.** Sort a copy of the list first, then take the middle item for odd lengths and the mean of the two middle items for even lengths. Compare your result with `statistics.median` on lists such as `[3, 1, 2]` and `[4, 1, 3, 2]`; both must give the same numbers.
+
+**Exercise 3.** Read `load_records` in `code/main.py` and keep its parsing step, but `yield` each `Record` instead of appending it to a list. Use `save_records` with `make_dataset(200_000)` to make the file, then compare `peak_bytes(lambda: load_records(path))` with `peak_bytes(lambda: sum(1 for _ in your_generator(path)))`. The generator must be consumed inside the callable, or `peak_bytes` measures only its creation. It must report a much smaller peak.
+
+**Exercise 4.** Use `dot` as the model for the pure Python version and call it once for each row, then use `np.array(matrix) @ np.array(vector)` for NumPy. Time both with `best_time` and print one table row for each size; the two results must be equal before you compare the times.
+
+**Exercise 5.** Read each file with `Path.read_text`, parse it with `ast.parse`, and use `any(isinstance(node, ast.ListComp) for node in ast.walk(tree))` to test one construct. Count each file one time, because the table in The Concept counts files.
 
 ## Key Terms
 

@@ -29,6 +29,7 @@ const GROUPS = [
     when: 'Use these every session. They read and update your plan.',
     skills: {
       learn: { line: 'Teaches your next lesson section by section in the terminal, asks questions, and records what you finished.', say: ['/learn', 'teach me the next lesson'], writes: 'LEARNING.md' },
+      'lesson-screen': { line: 'Opens a screen in your browser next to the terminal. It shows the lesson figure for each step and traces the code with real values. It also builds a figure for your lesson while you learn, from a blueprint to a 3D model. After the quiz, it writes a practice page with a timed drill and spaced review. Without a local browser, it gives you the lesson page instead.', say: ['open the lesson screen', 'build a figure for this lesson'], writes: 'A .lesson-screen folder with each screen it showed' },
       'check-understanding': { line: 'Quizzes you on a phase and tells you which lessons to read again before you move on.', say: ['quiz me on phase 3', 'check my understanding'], writes: 'Nothing. It prints your score and what to review.' },
       'build-project': { line: 'Guides one stage of a course project per session. It gives hints only. You write the code and run the stage grader.', say: ['build a project', 'continue my project'], writes: 'PROJECTS-LEARNING.md' },
     },
@@ -40,6 +41,7 @@ const GROUPS = [
     skills: {
       'learn-mcp': { line: 'One lesson at a time through the Model Context Protocol path: clients, servers, transports, security, gateways, and conformance.', say: ['teach me MCP', 'continue the MCP path'], writes: 'MCP-LEARNING.md' },
       'learn-agent-skills': { line: 'One lesson at a time through the Agent Skills path: write, find, run, secure, test, package, and port skills.', say: ['teach me agent skills', 'continue the skills path'], writes: 'AGENT-SKILLS-LEARNING.md' },
+      'learn-reverse-engineering': { line: 'One lesson at a time through the Reverse Engineering path: read a compiled program you built, decode it, lift it, record evidence, and prove a rebuild equal.', say: ['teach me reverse engineering', 'continue the reverse engineering path'], writes: 'REVERSE-ENGINEERING-LEARNING.md' },
     },
   },
   {
@@ -49,6 +51,14 @@ const GROUPS = [
     skills: {
       'claude-certification': { line: 'Tutor for the four independent Claude certification tracks: choose a track, learn lesson by lesson, run labs, and take practice exams.', say: ['prepare for the Claude certification', 'resume my certification'], writes: 'CLAUDE-CERTIFICATION.md' },
       'mcpa-certification': { line: 'Tutor for the Model Context Protocol Associate exam: lessons, practical labs, and practice questions with feedback.', say: ['prepare for MCPA', 'MCPA practice exam'], writes: 'MCPA-CERTIFICATION.md' },
+    },
+  },
+  {
+    id: 'interview',
+    title: 'Interview practice',
+    when: 'Use this to practise for an AI engineering interview, one question or one incident at a time.',
+    skills: {
+      'interview-prep': { line: 'Asks one interview question or one incident scenario and waits for your answer. Then it grades the answer against the interview bank, asks follow-ups one at a time, and sends each gap to the lesson or manual section that teaches it.', say: ['mock interview', 'run an incident scenario'], writes: 'INTERVIEW-LEARNING.md' },
     },
   },
   {
@@ -231,7 +241,7 @@ function build() {
   <link rel="canonical" href="${ORIGIN}/skills.html">
   <link rel="alternate" type="text/markdown" href="${ORIGIN}/skills.md">
   <meta property="og:title" content="Skills · AI Engineering from Scratch">
-  <meta property="og:description" content="15 skills for your coding agent: course lessons, level tests, certification prep, and figure and manual tools.">
+  <meta property="og:description" content="${total} skills for your coding agent: course lessons, level tests, certification prep, and figure and manual tools.">
   <meta property="og:image" content="${ORIGIN}/og/page/skills.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -242,11 +252,11 @@ function build() {
   <meta property="og:url" content="${ORIGIN}/skills.html">
   <meta property="og:type" content="website">
   <meta name="twitter:title" content="Skills · AI Engineering from Scratch">
-  <meta name="twitter:description" content="15 skills for your coding agent: course lessons, level tests, certification prep, and figure and manual tools.">
+  <meta name="twitter:description" content="${total} skills for your coding agent: course lessons, level tests, certification prep, and figure and manual tools.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=VT323&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260824a">
+  <link rel="stylesheet" href="style.css?v=20261015a">
   <script>
     (function () {
       var root = document.documentElement;
@@ -266,7 +276,7 @@ function build() {
         <a href="index.html#contents">Contents</a>
         <a href="catalog.html">Catalog</a>
         <a href="skills.html">Skills</a>
-        <a href="prereqs.html">Roadmap</a>
+        <a href="roadmap.html">Roadmap</a>
         <a href="glossary.html">Glossary</a>
         <a href="about.html">About</a>
         <a href="${GITHUB}" target="_blank" rel="noopener" class="header-github">GitHub <span class="star-count" data-loading="true" aria-label="GitHub stars">…</span></a>
@@ -353,7 +363,7 @@ python3 scripts/install_skills.py .skills --type all --dry-run</code></pre>
       });
     })();
   </script>
-  <script src="header.js?v=20260927a" defer></script>
+  <script src="header.js?v=20261103a" defer></script>
   <script src="dither.js?v=20261013a" defer></script>
   <script src="skills-demo.js?v=20261013a" defer></script>
 </body>
